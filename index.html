@@ -1,199 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dancan Amenya Ombati | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dancan Amenya Ombati | Finance Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#f4f6f8;
-color:#333;
-line-height:1.6;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-header{
-background:#1f2937;
-color:white;
-padding:40px 20px;
-text-align:center;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
 
-header h1{
-margin:0;
-font-size:32px;
-}
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: #0f172a;
+      padding: 14px 24px;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
 
-header p{
-margin:5px 0;
-}
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-.container{
-max-width:1000px;
-margin:auto;
-padding:20px;
-}
+    .brand {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: bold;
+    }
 
-section{
-background:white;
-margin-bottom:20px;
-padding:20px;
-border-radius:8px;
-box-shadow:0 2px 6px rgba(0,0,0,0.05);
-}
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
 
-h2{
-border-bottom:2px solid #eee;
-padding-bottom:5px;
-}
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
 
-ul{
-padding-left:20px;
-}
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: #ffffff;
+      padding: 70px 20px 60px;
+    }
 
-.job{
-margin-bottom:15px;
-}
+    .hero-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 30px;
+      align-items: center;
+    }
 
-.footer{
-text-align:center;
-padding:20px;
-background:#1f2937;
-color:white;
-margin-top:30px;
-}
-</style>
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 40px;
+    }
 
+    .hero h2 {
+      margin: 0 0 18px;
+      font-size: 20px;
+      font-weight: normal;
+      color: #dbeafe;
+    }
+
+    .hero p {
+      margin-bottom: 22px;
+      max-width: 700px;
+    }
+
+    .hero-buttons a {
+      display: inline-block;
+      margin-right: 12px;
+      margin-bottom: 12px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #ffffff;
+    }
+
+    .profile-card {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .profile-card img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.5);
+      margin-bottom: 15px;
+    }
+
+    .profile-placeholder {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border: 4px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .contact-mini {
+      font-size: 14px;
+      color: #e5e7eb;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    section {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    section h3 {
+      margin-top: 0;
+      font-size: 24px;
+      color: #0f172a;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .skill {
+      background: #eff6ff;
+      color: #1e3a8a;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .job, .project, .training-item, .referee {
+      margin-bottom: 24px;
+    }
+
+    .job h4, .project h4 {
+      margin-bottom: 6px;
+      font-size: 18px;
+      color: #111827;
+    }
+
+    .meta {
+      color: #4b5563;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    .project {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 18px;
+      background: #fafafa;
+    }
+
+    .project-note {
+      font-size: 14px;
+      color: #374151;
+      background: #f9fafb;
+      border-left: 4px solid #3b82f6;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 12px;
+    }
+
+    .contact-box a {
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      background: #0f172a;
+      color: #cbd5e1;
+    }
+
+    @media (max-width: 900px) {
+      .hero-container,
+      .two-col,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links a {
+        margin-left: 10px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<h1>Dancan Amenya Ombati</h1>
-<p>Nairobi, Kenya</p>
-<p>Mobile: +254-719280602 | Email: dancan.amenya64@gmail.com</p>
-</header>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="brand">Dancan Amenya Ombati</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#training">Training</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<div class="container">
+  <header class="hero">
+    <div class="hero-container">
+      <div>
+        <h1>Dancan Amenya Ombati</h1>
+        <h2>Finance Professional | Accounts | Credit | Customer Operations</h2>
+        <p>
+          Results-driven finance professional with experience in front office, back office,
+          customer care, credit operations, loan processing, reconciliation, and financial reporting.
+          Committed to accuracy, compliance, operational efficiency, and strong client relationships.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn-primary" href="#contact">Contact Me</a>
+          <a class="btn-secondary" href="mailto:dancan.amenya64@gmail.com">Email Me</a>
+        </div>
+      </div>
 
-<section>
-<h2>Professional Summary</h2>
-<p>
-Results-driven Finance professional with experience in front office, back office, customer care, and accounts operations. 
-Skilled in credit appraisal, loan processing, risk assessment, and maintaining high-quality loan portfolios (PAR). 
-Proficient in accounts payable and receivables, bank reconciliation, account support, client onboarding, and resolving 
-customer issues professionally. Strong analytical abilities supported by data analysis, Microsoft Office proficiency, 
-and training in Six Sigma and cloud technologies. Committed to operational efficiency, compliance with financial procedures, 
-and building strong client relationships through accuracy, integrity, and effective problem-solving.
-</p>
-</section>
+      <div class="profile-card">
+        <!-- If you upload your photo, replace the div below with:
+        <img src="images/profile.jpg" alt="Dancan Amenya Ombati">
+        -->
+        <div class="profile-placeholder">Your Photo</div>
+        <div class="contact-mini">Nairobi, Kenya</div>
+        <div class="contact-mini">+254-719280602</div>
+        <div class="contact-mini">dancan.amenya64@gmail.com</div>
+      </div>
+    </div>
+  </header>
 
-<section>
-<h2>Key Competencies & Skills</h2>
-<ul>
-<li>Financial Reporting</li>
-<li>Accounts Reconciliation</li>
-<li>Financial Data Entry & Record Management</li>
-<li>AI Data Annotation & Labeling</li>
-<li>Microsoft Office Suite</li>
-<li>AI & Machine Learning</li>
-<li>Data Annotation</li>
-<li>Attention to Detail</li>
-<li>Filing Systems Design</li>
-<li>Records Digitization</li>
-<li>Workflow Optimization</li>
-<li>Inventory Auditing</li>
-<li>Communication</li>
-<li>Confidentiality</li>
-<li>Problem-Solving</li>
-<li>Time Management</li>
-<li>Statistical Sampling Techniques</li>
-<li>Data Analysis</li>
-</ul>
-</section>
+  <main class="container">
 
-<section>
-<h2>Work Experience</h2>
+    <section id="about">
+      <h3>About Me</h3>
+      <p>
+        I am a results-driven Finance professional with experience in front office, back office,
+        customer care, and accounts operations. I am skilled in credit appraisal, loan processing,
+        risk assessment, and maintaining high-quality loan portfolios. I am proficient in accounts
+        payable and receivables, bank reconciliation, account support, client onboarding, and resolving
+        customer issues professionally.
+      </p>
+      <p>
+        I possess strong analytical skills supported by proficiency in data analysis, Microsoft Office,
+        and training in Six Sigma and cloud technologies. I am experienced in delivering excellent
+        customer service, enhancing operational efficiency, and ensuring compliance with financial procedures.
+      </p>
+    </section>
 
-<div class="job">
-<h3>Vision Fund Kenya – Relationship Officer</h3>
-<p><strong>Aug 2025 – Dec 2025</strong></p>
-<ul>
-<li>Promoted products and services to existing and new customers.</li>
-<li>Analyzed clients’ financial status, credit histories, cash flows, and collateral to assess risk.</li>
-<li>Evaluated applicants’ business financial statements to make informed recommendations.</li>
-<li>Ensured all documentation (credit reports, business plans, collateral) was properly collected and verified.</li>
-<li>Facilitated disbursement of approved loans according to company policies.</li>
-<li>Ensured timely payments of bills.</li>
-<li>Updated credit records to reflect new changes.</li>
-<li>Prepared financial reports.</li>
-<li>Assisted the admin in loan booking, updating cleint information, registering new clients, customer support, communication liason.</li>
-</ul>
-</div>
+    <section id="skills">
+      <h3>Key Competencies & Skills</h3>
+      <div class="skills-grid">
+        <div class="skill">Financial Reporting</div>
+        <div class="skill">Accounts Reconciliation</div>
+        <div class="skill">Data Entry & Records</div>
+        <div class="skill">Database Management</div>
+        <div class="skill">Microsoft Office Suite</div>
+        <div class="skill">Report Writing</div>
+        <div class="skill">Compliance</div>
+        <div class="skill">Attention to Detail</div>
+        <div class="skill">Workflow Optimization</div>
+        <div class="skill">Inventory Auditing</div>
+        <div class="skill">Communication</div>
+        <div class="skill">Confidentiality</div>
+        <div class="skill">Problem-Solving</div>
+        <div class="skill">Time Management</div>
+        <div class="skill">Statistical Sampling</div>
+        <div class="skill">Data Analysis</div>
+        <div class="skill">Loan Processing</div>
+        <div class="skill">Risk Assessment</div>
+      </div>
+    </section>
 
-<div class="job">
-<h3>Digital Divide Data – Quality Assurance Auditor</h3>
-<p><strong>Aug 2023 – July 2024</strong></p>
-<ul>
-<li>Completed assignments using multiple reference guides and operating procedures.</li>
-<li>Recommended solutions to tasks outside defined processes.</li>
-<li>Audited mapper tasks daily to ensure accuracy and compliance.</li>
-<li>Reviewed and annotated audios, videos, texts, and images based on defined guidelines.</li>
-<li>Improved quality and reduced failure rates before delivery to clients.</li>
-</ul>
-</div>
+    <section id="experience">
+      <h3>Work Experience</h3>
 
-<div class="job">
-<h3>Wakenya Pamoja SACCO – Accounting Associate</h3>
-<p><strong>Jan 2023 – Aug 2023</strong></p>
-<ul>
-<li>Processed deposits, withdrawals, and balance inquiries.</li>
-<li>Managed accounts payable and receivable.</li>
-<li>Performed bank and ledger reconciliations.</li>
-<li>Resolved discrepancies in daily transactions.</li>
-<li>Prepared journal entries and assisted with monthly closing.</li>
-<li>Assisted in budgeting, financial analysis, and forecasting.</li>
-<li>Maintained books of accounts.</li>
-</ul>
-</div>
+      <div class="job">
+        <h4>Vision Fund Kenya — Relationship Officer</h4>
+        <div class="meta">Aug 2025 – Dec 2025</div>
+        <ul>
+          <li>Promoted products and services to existing and new customers.</li>
+          <li>Analyzed clients’ financial status, credit histories, cash flows, and collateral to assess risk.</li>
+          <li>Evaluated applicants’ business financial statements to make informed recommendations.</li>
+          <li>Collected, verified, and maintained proper credit documentation.</li>
+          <li>Facilitated loan disbursement in line with company policies.</li>
+          <li>Prepared timely financial reports and updated credit records accurately.</li>
+          <li>Maintained up-to-date records of applications, approvals, and payments.</li>
+        </ul>
+      </div>
 
-</section>
+      <div class="job">
+        <h4>Digital Divide Data — Quality Assurance Auditor</h4>
+        <div class="meta">Aug 2023 – Jul 2024</div>
+        <ul>
+          <li>Completed assignments using multiple reference guides and operating procedures.</li>
+          <li>Recommended solutions for tasks outside defined processes and procedures.</li>
+          <li>Audited mapper tasks daily to ensure accuracy and compliance.</li>
+          <li>Reviewed and annotated medium-risk audios, videos, texts, and images according to predefined descriptions.</li>
+          <li>Contributed to improved quality and reduced failure rates before final client delivery.</li>
+        </ul>
+      </div>
 
-<section>
-<h2>Education</h2>
- <p><strong>Bachelor of Science in Finance</strong></p>
- <p>The Cooperative University of Kenya | 2023 – 2026</p>
-  
-<p><strong>Diploma in Banking and Finance (Credit)</strong></p>
-<p>The Cooperative University of Kenya | 2020 – 2022</p>
-</section>
+      <div class="job">
+        <h4>Wakenya Pamoja SACCO — Accounting Associate</h4>
+        <div class="meta">Jan 2023 – Aug 2023</div>
+        <ul>
+          <li>Processed deposits, withdrawals, and balance inquiries accurately.</li>
+          <li>Managed accounts payable and receivable.</li>
+          <li>Performed bank reconciliations and ledger reconciliations.</li>
+          <li>Reconciled daily transactions and resolved discrepancies.</li>
+          <li>Prepared journal entries and supported monthly closing processes.</li>
+          <li>Assisted in budgeting, financial analysis, and forecasting.</li>
+          <li>Maintained books of accounts.</li>
+        </ul>
+      </div>
+    </section>
 
-<section>
-<h2>Professional Trainings & Workshops</h2>
-<ul>
-<li>Elements of AI for Business – 2026</li>
-<li>AWS Certified Cloud Practitioner – Ajira Digital Kenya - 2024</li>
-<li>Data Analysis by Microsoft – Kenya Private Sector Alliance - 2024</li>
-<li>Excel Skills for Business – Coursera - 2023</li>
-<li>Computer Packages – St Ann’s College - 2020</li>
-<li>Six Sigma Green Belt – International Institute of Business Analysis - 2024</li>
-</ul>
-</section>
+    <section id="projects">
+      <h3>Portfolio Projects</h3>
 
-<section>
-<h2>Referees</h2>
-<p><strong>Mr. Wilson Bet</strong> – Branch Manager, Vision Fund Kenya</p>
-<p><strong>Joseph Mburu</strong> – Senior Relationship Officer, Vision Fund Kenya</p>
-<p><strong>Bradley Magina</strong> – Project Team Lead, Digital Divide Data</p>
-</section>
+      <div class="project">
+        <h4>Loan Appraisal and Credit Risk Review</h4>
+        <p>
+          Example of professional experience in analyzing financial status, cash flows,
+          collateral, and credit history to support lending decisions and portfolio quality.
+        </p>
+        <div class="project-note">
+          Add a screenshot here later if you have a sample credit assessment sheet,
+          loan monitoring report, or portfolio tracking dashboard.
+        </div>
+      </div>
 
-</div>
+      <div class="project">
+        <h4>Accounts Reconciliation and Reporting Support</h4>
+        <p>
+          Experience in managing reconciliations, resolving discrepancies, maintaining accurate
+          records, and supporting routine financial reporting and closing processes.
+        </p>
+        <div class="project-note">
+          Add an image of an Excel reconciliation template, a reporting dashboard,
+          or a sample financial summary if available.
+        </div>
+      </div>
 
-<div class="footer">
-<p>© 2026 Dancan Amenya Ombati</p>
-</div>
+      <div class="project">
+        <h4>Quality Assurance and Process Accuracy</h4>
+        <p>
+          Work in auditing operational tasks, ensuring compliance with procedures,
+          identifying exceptions, and improving output quality before client delivery.
+        </p>
+        <div class="project-note">
+          You can later add screenshots of quality tracking sheets, process checklists,
+          or workflow summaries.
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h3>Education</h3>
+      <div class="two-col">
+        <div>
+          <h4>Diploma in Banking and Finance - Credit</h4>
+          <div class="meta">The Cooperative University of Kenya | 2020 – 2022</div>
+        </div>
+        <div>
+          <p>
+            Academic foundation in finance, banking operations, and credit-related practice.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="training">
+      <h3>Professional Trainings & Workshops</h3>
+      <div class="training-item">AWS Certified Cloud Practitioner — Ajira Digital Kenya</div>
+      <div class="training-item">Data Analysis by Microsoft — Kenya Private Sector Alliance</div>
+      <div class="training-item">Excel Skills for Business — Coursera</div>
+      <div class="training-item">Computer Packages — St Ann’s College</div>
+      <div class="training-item">Six Sigma Green Belt — International Institute of Business Analysis</div>
+    </section>
+
+    <section>
+      <h3>Referees</h3>
+      <div class="referee"><strong>Mr. Wilson Bet</strong> — Branch Manager, Vision Fund Kenya</div>
+      <div class="referee"><strong>Joseph Mburu</strong> — Senior Relationship Officer, Vision Fund Kenya</div>
+      <div class="referee"><strong>Bradley Magina</strong> — Project Team Lead, Digital Divide Data</div>
+    </section>
+
+    <section id="contact" class="contact-box">
+      <h3>Contact</h3>
+      <p><strong>Name:</strong> Dancan Amenya Ombati</p>
+      <p><strong>Location:</strong> Nairobi, Kenya</p>
+      <p><strong>Phone:</strong> <a href="tel:+254719280602">+254-719280602</a></p>
+      <p><strong>Email:</strong> <a href="mailto:dancan.amenya64@gmail.com">dancan.amenya64@gmail.com</a></p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Dancan Amenya Ombati. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
